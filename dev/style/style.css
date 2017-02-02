@@ -51,6 +51,8 @@ button:focus {
   height: 12px;
   position: relative;
   display: none;
+  border: 0;
+  background: transparent;
   vertical-align: top;
   transition: 0.5s ease-in-out;
   margin-right: 10px;
@@ -76,6 +78,7 @@ button:focus {
   height: 3px;
   width: 100%;
   background: #4f4d6a;
+  top: 0;
   left: 0;
   -ms-transform: rotate(0deg);
       transform: rotate(0deg);
@@ -92,53 +95,52 @@ button:focus {
 }
 @media screen and (max-width: 713px) {
   .hamburger {
-    display: inline-block;
+    display: block;
+    margin-left: auto;
   }
 }
-.container.header {
+.page-header {
   position: fixed;
   z-index: 999;
-  transition: all 0.2s ease-in;
   background: transparent;
-}
-.container.header.active {
-  background: #f0f0f2;
-}
-.container.header.active header {
-  padding-top: 23px;
-}
-header {
-  max-width: 960px;
-  margin: auto;
-  position: relative;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
   -ms-flex-align: center;
       align-items: center;
   transition: all 0.2s ease-in;
+  width: 100%;
   padding: 50px 15px 20px;
   box-sizing: content-box;
 }
-header .nav-bar {
+.page-header.active {
+  background: #f0f0f2;
+  padding-top: 23px;
+}
+.page-header nav {
+  margin-left: auto;
+}
+.page-header .nav-bar {
   display: -ms-flexbox;
   display: flex;
   list-style: none;
 }
-header .nav-bar a {
+.page-header .nav-bar a {
   text-transform: uppercase;
   color: #4f4d6a;
   font: bold 1rem arial;
 }
-header .nav-bar li:not(:first-child) {
+.page-header .nav-bar li:not(:first-child) {
   margin-left: 26px;
 }
+.page-header .content {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+}
 @media screen and (max-width: 713px) {
-  header {
+  .page-header {
     padding-top: 23px;
   }
-  header .nav-bar_wr {
+  .page-header nav {
     overflow: hidden;
     display: block;
     position: absolute;
@@ -151,14 +153,14 @@ header .nav-bar li:not(:first-child) {
     transition: all 0.3s ease-in;
     z-index: 99;
   }
-  header .nav-bar {
+  .page-header .nav-bar {
     display: block;
     padding: 20px 15px 15px;
     box-sizing: border-box;
     background: rgba(235, 234, 239, 0.8);
   }
-  header .nav-bar li:not(:first-child),
-  header .nav-bar li {
+  .page-header .nav-bar li:not(:first-child),
+  .page-header .nav-bar li {
     margin: 0 40px 0 0;
     padding: 10px 0;
   }
@@ -166,7 +168,7 @@ header .nav-bar li:not(:first-child) {
 .hero {
   background: url('../i/hero.jpg') no-repeat top;
   background-size: cover;
-  height: calc(100vw + 175px);
+  height: calc(100vh);
   max-height: 1135px;
   min-height: 570px;
 }
@@ -179,44 +181,44 @@ header .nav-bar li:not(:first-child) {
   }
 }
 .title {
-  color: #4f4d6a;
   font: bold 125px "Times New Roman", Georgia, Serif;
-  text-transform: uppercase;
   margin: 17px 0;
 }
-.title.__decor {
-  text-transform: uppercase;
+.title__wr {
+  border-bottom: 1px solid #fff;
   color: #4f4d6a;
-  font: italic normal 2rem "Times New Roman", Georgia, Serif;
+  text-transform: uppercase;
+  text-align: center;
+}
+.title__decor {
   position: relative;
   margin: 0;
+  overflow: hidden;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: normal;
 }
-.title.__decor:before,
-.title.__decor:after {
+.title__decor:before,
+.title__decor:after {
   content: "";
-  position: absolute;
-  border-top: 1px solid #fff;
-  top: 50%;
-}
-.title.__decor:before {
-  left: 0px;
-  right: 50%;
-  margin-right: 70px;
-}
-.title.__decor:after {
-  right: 0px;
-  left: 50%;
-  margin-left: 70px;
-}
-.title_wr {
-  border-bottom: 1px solid #fff;
-  text-align: center;
   position: relative;
+  top: -1px;
+  width: 50%;
+  height: 2px;
+  display: inline-block;
+  vertical-align: middle;
+  border-top: 1px solid #fff;
+}
+.title__decor:before {
+  left: -10px;
+  margin-left: -50%;
+}
+.title__decor:after {
+  left: 10px;
+  margin-right: -50%;
 }
 .subtitle {
-  color: #4f4d6a;
   font: bold 18px Arial, 'Helvetica Neue', Helvetica, sans-serif;
-  text-transform: uppercase;
   margin-bottom: 30px;
 }
 @media (min-width: 320px) and (max-width: 992px) {
@@ -225,10 +227,10 @@ header .nav-bar li:not(:first-child) {
   }
 }
 @media screen and (max-width: 713px) {
-  .title.__decor:before {
+  .title__decor:before {
     margin-right: 90px;
   }
-  .title.__decor:left {
+  .title__decor:left {
     margin-left: 90px;
   }
 }
@@ -238,6 +240,15 @@ header .nav-bar li:not(:first-child) {
   }
 }
 .group-btn {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding-top: 45px;
+}
+.group-btn__item {
   text-align: center;
   font: italic 18px "Times New Roman", Georgia, Serif;
   color: #fff;
@@ -250,25 +261,16 @@ header .nav-bar li:not(:first-child) {
   background: linear-gradient(#e0d7dc 1px, #cfc0c9 0%, #9d8596 100%);
   margin: 0 10px 15px;
 }
-.group-btn:first-child {
+.group-btn__item.mod-dark {
   border-color: #4f4d6a;
   background: #4f4d6a;
   background: linear-gradient(#9997af 1px, #6d6b89 0%, #504e6b 100%);
-}
-.group-btn_wr {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: center;
-      justify-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  padding-top: 45px;
 }
 .work {
   background: #ebebeb;
   padding: 65px 0 100px;
 }
-.work-wr {
+.work__wr {
   margin: 30px auto 0;
   border-bottom: 1px solid #fff;
   display: -ms-flexbox;
@@ -280,6 +282,7 @@ header .nav-bar li:not(:first-child) {
 }
 .work-item {
   padding: 0 5px 40px;
+  width: 218px;
 }
 .work-info {
   font: italic 1rem "Times New Roman", Georgia, Serif;
@@ -288,9 +291,6 @@ header .nav-bar li:not(:first-child) {
 .work-title {
   font-size: 1.8rem;
   margin-bottom: 13px;
-}
-.work-dscr {
-  width: 218px;
 }
 .work .title.__decor {
   font-size: 1.5rem;
@@ -334,7 +334,7 @@ header .nav-bar li:not(:first-child) {
       flex-basis: 300px;
   padding-right: 10px;
 }
-.advantages-article_wr {
+.advantages-article__wr {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: justify;

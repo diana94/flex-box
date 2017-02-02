@@ -1,26 +1,20 @@
-.container.header {
+.page-header {
     position: fixed;
     z-index: 999;
     transition: all .2s ease-in;
     background: transparent;
-}
-
-.container.header.active {
-    background: #f0f0f2;
-}
-
-.container.header.active header { padding-top: 23px; }
-
-header {
-    max-width: @max-width;
-    margin: auto;
-    position: relative;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
     transition: all .2s ease-in;
+    width: 100%;
     padding: 50px 15px 20px;
     box-sizing: content-box;
+
+    &.active {
+        background: #f0f0f2;
+        padding-top: 23px;
+    }
+
+    nav { margin-left: auto; }
 
     .nav-bar {
         display: flex;
@@ -34,12 +28,17 @@ header {
 
         li:not(:first-child) { margin-left: 26px; }
     }
+
+    .content {
+        display: flex;
+        align-items: center;
+     }
 }
 
 @media screen and (max-width: 713px) {
-    header { padding-top: 23px; }
+    .page-header { padding-top: 23px; }
 
-    header .nav-bar_wr {
+    .page-header nav {
         overflow: hidden;
         display: block;
         position: absolute;
@@ -53,15 +52,15 @@ header {
         z-index: 99;
     }
 
-    header .nav-bar {
+    .page-header .nav-bar {
         display: block;
         padding: 20px 15px 15px;
         box-sizing: border-box;
         background: rgba(235, 234, 239, 0.8);
     }
 
-    header .nav-bar li:not(:first-child),
-    header .nav-bar li {
+    .page-header .nav-bar li:not(:first-child),
+    .page-header .nav-bar li {
         margin: 0 40px 0 0;
         padding: 10px 0;
      }

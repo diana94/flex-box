@@ -1,52 +1,50 @@
 .title {
-    color: #4f4d6a;
     font: bold 125px @main-font;
-    text-transform: uppercase;
     margin: 17px 0;
 
-    &.__decor {
-        text-transform: uppercase;
+    &__wr {
+        border-bottom: 1px solid #fff;
         color: #4f4d6a;
-        font: italic normal 2rem @main-font;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    &__decor {
         position: relative;
         margin: 0;
+        overflow: hidden;
+        font-size: 24px;
+        font-style: italic;
+        font-weight: normal;
 
         &:before,
         &:after {
             content: "";
-            position: absolute;
+            position: relative;
+            top: -1px;
+            width: 50%;
+            height: 2px;
+            display: inline-block;
+            vertical-align: middle;
             border-top: 1px solid #fff;
-            top: 50%;
         }
 
         &:before {
-            left: 0px;
-            right: 50%;
-            margin-right: 70px;
+            left: -10px;
+            margin-left: -50%;
         }
 
         &:after {
-            right: 0px;
-            left: 50%;
-            margin-left: 70px;
+            left: 10px;
+            margin-right: -50%;
         }
     }
-
-    &_wr {
-        border-bottom: 1px solid #fff;
-        text-align: center;
-        position: relative;
-    }
 }
-
 
 .subtitle {
-    color: #4f4d6a;
     font: bold 18px @arial;
-    text-transform: uppercase;
     margin-bottom: 30px;
 }
-
 
 @media (min-width: 320px) and (max-width: 992px){
   .title {
@@ -55,8 +53,8 @@
 }
 
 @media screen and (max-width: 713px) {
-    .title.__decor:before { margin-right: 90px;}
-    .title.__decor:left { margin-left: 90px;}
+    .title__decor:before { margin-right: 90px;}
+    .title__decor:left { margin-left: 90px;}
 }
 
 @media screen and (max-width: 319px) {

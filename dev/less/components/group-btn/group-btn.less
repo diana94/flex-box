@@ -1,26 +1,26 @@
 .group-btn {
-    text-align: center;
-    font: italic 18px @main-font;
-    color: #fff;
-    min-width: 220px;
-    border-radius: 25px;
-    padding: 11px;
-    box-sizing: border-box;
-    border: 1px solid #927c90;
-    background: #927c90;
-    background: linear-gradient(#e0d7dc 1px, #cfc0c9 0%, #9d8596 100%);
-    margin: 0 10px 15px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 45px;
 
-    &:first-child {
-        border-color: #4f4d6a;
-        background: #4f4d6a;
-        background: linear-gradient(#9997af 1px, #6d6b89 0%, #504e6b 100%);
-    }
+    &__item {
+        text-align: center;
+        font: italic 18px @main-font;
+        color: #fff;
+        min-width: 220px;
+        border-radius: 25px;
+        padding: 11px;
+        box-sizing: border-box;
+        border: 1px solid #927c90;
+        background: #927c90;
+        background: linear-gradient(#e0d7dc 1px, #cfc0c9 0%, #9d8596 100%);
+        margin: 0 10px 15px;
 
-    &_wr {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        padding-top: 45px;
+        &.mod-dark {
+            border-color: #4f4d6a;
+            background: #4f4d6a;
+            background: linear-gradient(#9997af 1px, #6d6b89 0%, #504e6b 100%);
+        }
     }
 }

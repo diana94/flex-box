@@ -3,11 +3,11 @@ $(document).ready(function(){
     var heightMenu = 0;
 
     $('.hamburger').click(function() {
-        heightMenu = $('header .nav-bar').innerHeight();
+        heightMenu = $('.page-header .nav-bar').innerHeight();
         $(this).toggleClass('open');
-        $('header .nav-bar_wr').toggleClass('open');
-        $('header .nav-bar_wr').css('height', '');
-        $('header .nav-bar_wr.open').css('height', heightMenu);
+        $('.page-header nav').toggleClass('open');
+        $('.page-header nav').css('height', '');
+        $('.page-header nav.open').css('height', heightMenu);
 
     });
 
@@ -15,9 +15,9 @@ $(document).ready(function(){
         var scroll = $(window).scrollTop();
 
         if (scroll > 0) {
-            $(".container.header").addClass("active");
+            $(".page-header").addClass("active");
         } else {
-            $(".container.header").removeClass("active");
+            $(".page-header").removeClass("active");
         }
     });
 });
