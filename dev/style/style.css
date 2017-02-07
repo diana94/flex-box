@@ -128,7 +128,7 @@ button:focus {
   font: bold 1rem arial;
 }
 .page-header .nav-bar li:not(:first-child) {
-  margin-left: 26px;
+  margin: 0 12px;
 }
 .page-header .content {
   display: -ms-flexbox;
@@ -226,14 +226,6 @@ button:focus {
     font-size: calc(36px + (125 - 36) * ( (100vw - 320px) / ( 992 - 320 )));
   }
 }
-@media screen and (max-width: 713px) {
-  .title__decor:before {
-    margin-right: 90px;
-  }
-  .title__decor:left {
-    margin-left: 90px;
-  }
-}
 @media screen and (max-width: 319px) {
   .title {
     font-size: 36px;
@@ -281,7 +273,7 @@ button:focus {
       justify-content: space-between;
 }
 .work-item {
-  padding: 0 5px 40px;
+  padding: 0 10px 40px;
   width: 218px;
 }
 .work-info {
@@ -306,7 +298,7 @@ button:focus {
   border-radius: 100%;
 }
 @media screen and (max-width: 992px) {
-  .work-wr {
+  .work__wr {
     max-width: 600px;
   }
 }
@@ -314,6 +306,12 @@ button:focus {
   .work-wr {
     -ms-flex-pack: distribute;
         justify-content: space-around;
+  }
+  .work__wr {
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-direction: column-reverse;
+        flex-direction: column-reverse;
   }
   .work .title {
     font-size: 37px;
