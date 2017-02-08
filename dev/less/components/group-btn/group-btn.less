@@ -5,17 +5,36 @@
     padding-top: 45px;
 
     &__item {
+        position: relative;
+        min-width: 220px;
+        margin: 0 10px 15px;
+        padding: 11px;
+        box-sizing: border-box;
+        background: #927c90;
+        background: linear-gradient(#e0d7dc 1px, #cfc0c9 0%, #9d8596 100%);
+        border: 1px solid #927c90;
+        border-radius: 25px;
         text-align: center;
         font: italic 18px @main-font;
         color: #fff;
-        min-width: 220px;
-        border-radius: 25px;
-        padding: 11px;
-        box-sizing: border-box;
-        border: 1px solid #927c90;
-        background: #927c90;
-        background: linear-gradient(#e0d7dc 1px, #cfc0c9 0%, #9d8596 100%);
-        margin: 0 10px 15px;
+        overflow: hidden;
+
+        &:before {
+            background: #fff;
+            content: "";
+            height: 155px;
+            left: -75px;
+            opacity: .2;
+            position: absolute;
+            top: -50px;
+            transform: rotate(35deg);
+            transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+            width: 50px;
+        }
+
+        &:hover {
+            &:before { left: 120%; }
+        }
 
         &.mod-dark {
             border-color: #4f4d6a;
