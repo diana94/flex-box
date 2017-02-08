@@ -11,8 +11,15 @@
     }
 
     &-item {
+        position: relative;
         padding: 0 10px 40px;
         width: 218px;
+
+        &:hover {
+            img {
+                transform: scale(1.1);
+            }
+        }
     }
 
     &-info {
@@ -27,6 +34,14 @@
 
     &-dscr {}
 
+    &-link {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
     .title.__decor { font-size: 1.5rem; }
 
     .title { font-size: 72px; }
@@ -38,6 +53,8 @@
         border: 22px solid #efefef;
         border-radius: 100%;
      }
+
+     img { transition: all .4s linear; }
 }
 
 @media screen and (max-width: 992px ) {

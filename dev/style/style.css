@@ -300,8 +300,13 @@ button:focus {
       justify-content: space-between;
 }
 .work-item {
+  position: relative;
   padding: 0 10px 40px;
   width: 218px;
+}
+.work-item:hover img {
+  -ms-transform: scale(1.1);
+      transform: scale(1.1);
 }
 .work-info {
   font: italic 1rem "Times New Roman", Georgia, Serif;
@@ -310,6 +315,13 @@ button:focus {
 .work-title {
   font-size: 1.8rem;
   margin-bottom: 13px;
+}
+.work-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 .work .title.__decor {
   font-size: 1.5rem;
@@ -323,6 +335,9 @@ button:focus {
   height: 174px;
   border: 22px solid #efefef;
   border-radius: 100%;
+}
+.work img {
+  transition: all .4s linear;
 }
 @media screen and (max-width: 992px) {
   .work__wr {
