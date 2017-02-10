@@ -3,7 +3,9 @@ var gulp        = require('gulp'),
     connect     = require('gulp-connect'),
     less        = require('gulp-less'),
     chalk       = require('chalk'),
-    sourcemaps  = require('gulp-sourcemaps');
+    sourcemaps  = require('gulp-sourcemaps'),
+    cssmin      = require('gulp-cssmin'),
+    rename      = require('gulp-rename');
 
 var LessPluginCleanCSS = require("less-plugin-clean-css"),
     cleancss = new LessPluginCleanCSS({advanced: true});
@@ -25,6 +27,13 @@ gulp.task('less', function () {
         .pipe(gulp.dest('./dev/style'));
 });
 
+gulp.task('compress', function () {
+    gulp.src('dev/style/style.css')
+        .pipe(cssmin())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('dev/style'));
+});
+
 gulp.task('connect', function() {
   connect.server({
     port: 8001,
@@ -35,12 +44,12 @@ gulp.task('connect', function() {
 });
 
 gulp.task('html', function () {
-  gulp.src('./app/*.html')
+  gulp.src('./dev/*.html')
     .pipe(connect.reload());
 });
 
-gulp.task('default', ['less', 'connect'], function () {
-
+gulp.task('default', ['less', 'connect', 'compress'], function () {
     gulp.watch('./dev/**/*.less', ['less']);
+    gulp.watch('./dev/**/style.css', ['compress']);
     gulp.watch(['./dev/*.html'], ['html']);
 });

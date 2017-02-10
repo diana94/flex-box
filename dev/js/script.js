@@ -1,6 +1,12 @@
 $(document).ready(function(){
 
     var heightMenu = 0;
+    var scroll = $(window).scrollTop();
+    if (scroll > 0) {
+        $(".page-header").addClass("active");
+    } else {
+        $(".page-header").removeClass("active");
+    }
 
     $('.hamburger').click(function() {
         heightMenu = $('.page-header .nav-bar').innerHeight();
@@ -12,8 +18,8 @@ $(document).ready(function(){
     });
 
     $(window).scroll(function() {
-        var scroll = $(window).scrollTop();
-
+        scroll = $(window).scrollTop();
+        
         if (scroll > 0) {
             $(".page-header").addClass("active");
         } else {

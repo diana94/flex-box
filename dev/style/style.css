@@ -323,7 +323,7 @@ button:focus {
   left: 0;
   right: 0;
 }
-.work .title.__decor {
+.work .title__decor {
   font-size: 1.5rem;
 }
 .work .title {
@@ -345,10 +345,6 @@ button:focus {
   }
 }
 @media screen and (max-width: 713px) {
-  .work-wr {
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-  }
   .work__wr {
     -ms-flex-align: center;
         align-items: center;
@@ -382,7 +378,7 @@ button:focus {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
-.advantages-text {
+.advantages-article__text {
   font: italic normal 1rem "Times New Roman", Georgia, Serif;
   line-height: 23px;
   margin-bottom: 30px;
