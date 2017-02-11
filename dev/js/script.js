@@ -19,7 +19,7 @@ $(document).ready(function(){
 
     $(window).scroll(function() {
         scroll = $(window).scrollTop();
-        
+
         if (scroll > 0) {
             $(".page-header").addClass("active");
         } else {
