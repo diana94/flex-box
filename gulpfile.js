@@ -15,7 +15,7 @@ var LessPluginCleanCSS = require("less-plugin-clean-css"),
 var LessPluginAutoPrefix = require('less-plugin-autoprefix'),
     autoprefix = new LessPluginAutoPrefix({browsers: ["last 3 versions"]});
 
-gulp.task('less', function () {
+gulp.task('less:style', function () {
 
     gulp.src('./dev/less/*.less')
         .pipe(sourcemaps.init())
@@ -29,11 +29,30 @@ gulp.task('less', function () {
         .pipe(gulp.dest('./dev/style'));
 });
 
+gulp.task('less:preload', function () {
+
+    gulp.src('./dev/pages/**/*.less')
+        .pipe(sourcemaps.init())
+        .pipe(less({
+            plugins: [autoprefix] /*, cleancss]*/
+        }))
+        .on('error', function (err) {
+            console.log(chalk.red("ERROR! ") + "file: " + chalk.red(err.filename) + " line: " + chalk.cyan(err.line));
+        })
+        .pipe(rename({
+            basename: "style"
+        }))
+
+        .pipe(gulp.dest('./dev/style'));
+});
+
+gulp.task('less', ['less:style', 'less:preload']);
+
 gulp.task('compress-css', function () {
-    gulp.src('dev/style/style.css')
-        .pipe(cssmin())
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('dev/style'));
+    gulp.src('dev/style/**/style.css')
+    .pipe(cssmin())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest('dev/style'));
 });
 
 gulp.task('compress-js', function() {
@@ -56,10 +75,11 @@ gulp.task('connect', function() {
 });
 
 gulp.task('fileinclude', function() {
-  gulp.src(['dev/pages/*.html'])
+    gulp.src(['dev/pages/**/*.html'])
+    .pipe(rename({dirname: ''}))
     .pipe(fileinclude({
-      prefix: '@@',
-      basepath: 'dev/blocks'
+        prefix: '@@',
+        basepath: 'dev/blocks'
     }))
     .pipe(gulp.dest('dev/'));
 });
@@ -69,10 +89,11 @@ gulp.task('html', function () {
     .pipe(connect.reload());
 });
 
-gulp.task('default', ['less', 'connect', 'compress-css', 'compress-js', 'fileinclude'], function () {
+gulp.task('default', ['less', 'connect', 'compress-css', 'compress-js', 'fileinclude', 'html'], function () {
     gulp.watch('./dev/**/*.less', ['less']);
-    gulp.watch('./dev/**/style.css', ['compress-css']);
+    gulp.watch('./dev/style/**/*.css', ['compress-css']);
     gulp.watch('./dev/js/script.js', ['compress-js']);
     gulp.watch(['./dev/*.html'], ['html']);
     gulp.watch(['./dev/blocks/**/*.html'], ['fileinclude']);
+    gulp.watch(['./dev/pages/**/*.html'], ['fileinclude']);
 });
