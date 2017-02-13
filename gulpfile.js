@@ -94,6 +94,7 @@ gulp.task('default', ['less', 'connect', 'compress-css', 'compress-js', 'fileinc
     gulp.watch('./dev/style/**/*.css', ['compress-css']);
     gulp.watch('./dev/js/script.js', ['compress-js']);
     gulp.watch(['./dev/*.html'], ['html']);
+    gulp.watch(['./dev/blocks/**/*.css'], ['fileinclude']);
     gulp.watch(['./dev/blocks/**/*.html'], ['fileinclude']);
     gulp.watch(['./dev/pages/**/*.html'], ['fileinclude']);
 });

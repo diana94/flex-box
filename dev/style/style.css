@@ -175,6 +175,7 @@ button:focus {
   }
 }
 .hero {
+  background: url('i/hero.jpg') no-repeat top;
   background: url('../i/hero.jpg') no-repeat top;
   background-size: cover;
   height: calc(100vh);
