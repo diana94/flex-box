@@ -199,7 +199,7 @@ button:focus {
     margin-left: auto;
   }
 }
-.page-header {
+.header {
   position: fixed;
   z-index: 999;
   background: transparent;
@@ -210,42 +210,42 @@ button:focus {
   padding: 50px 15px 20px;
   box-sizing: content-box;
 }
-.page-header.active {
+.header.active {
   background: #f0f0f2;
   padding-top: 23px;
 }
-.page-header nav {
+.header nav {
   margin-left: auto;
 }
-.page-header .nav-bar {
+.header .nav-bar {
   display: -ms-flexbox;
   display: flex;
   list-style: none;
 }
-.page-header .nav-bar a {
+.header .nav-bar a {
   text-transform: uppercase;
   color: #4f4d6a;
   font: bold 1rem arial;
   transition: all 0.28s ease-in-out;
   border-bottom: 1px solid transparent;
 }
-.page-header .nav-bar a:hover {
+.header .nav-bar a:hover {
   border-bottom: 1px solid #4f4d6a;
 }
-.page-header .nav-bar li:not(:first-child) {
+.header .nav-bar li:not(:first-child) {
   margin: 0 12px;
 }
-.page-header .content {
+.header .content {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
       align-items: center;
 }
 @media screen and (max-width: 713px) {
-  .page-header {
+  .header {
     padding-top: 23px;
   }
-  .page-header nav {
+  .header nav {
     overflow: hidden;
     display: block;
     position: absolute;
@@ -258,14 +258,14 @@ button:focus {
     transition: all 0.3s ease-in;
     z-index: 99;
   }
-  .page-header .nav-bar {
+  .header .nav-bar {
     display: block;
     padding: 20px 15px 15px;
     box-sizing: border-box;
     background: rgba(235, 234, 239, 0.8);
   }
-  .page-header .nav-bar li:not(:first-child),
-  .page-header .nav-bar li {
+  .header .nav-bar li:not(:first-child),
+  .header .nav-bar li {
     margin: 0 40px 0 0;
     padding: 10px 0;
   }

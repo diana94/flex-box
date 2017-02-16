@@ -1,4 +1,4 @@
-.page-header {
+.header {
     position: fixed;
     z-index: 999;
     transition: all .2s ease-in;
@@ -42,9 +42,9 @@
 }
 
 @media screen and (max-width: 713px) {
-    .page-header { padding-top: 23px; }
+    .header { padding-top: 23px; }
 
-    .page-header nav {
+    .header nav {
         overflow: hidden;
         display: block;
         position: absolute;
@@ -58,15 +58,15 @@
         z-index: 99;
     }
 
-    .page-header .nav-bar {
+    .header .nav-bar {
         display: block;
         padding: 20px 15px 15px;
         box-sizing: border-box;
         background: rgba(235, 234, 239, 0.8);
     }
 
-    .page-header .nav-bar li:not(:first-child),
-    .page-header .nav-bar li {
+    .header .nav-bar li:not(:first-child),
+    .header .nav-bar li {
         margin: 0 40px 0 0;
         padding: 10px 0;
      }
